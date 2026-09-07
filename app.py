@@ -1,11 +1,8 @@
-import sqlite3
+from db import run_query
 
 
-def get_user(username):
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
-    return cursor.fetchone()
+def list_active_users():
+    return run_query("SELECT id, username FROM users WHERE active = 1")
 
 
 def get_config():
