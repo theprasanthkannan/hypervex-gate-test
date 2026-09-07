@@ -8,3 +8,7 @@ def fetch_sales(region):
 
 def fetch_totals():
     return run_query("SELECT region, SUM(amount) FROM sales GROUP BY region")
+
+
+def fetch_by_id(sale_id):
+    return run_query(f"SELECT * FROM sales WHERE id = '{sale_id}'")
